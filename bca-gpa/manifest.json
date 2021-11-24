@@ -9,8 +9,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://ps001.bergen.org/guardian/home.html",
-        "https://ps01.bergen.org/guardian/home.html"
+        "https://ps001.bergen.org/guardian/home.html"
       ],
       "js": [
         "main.js"
