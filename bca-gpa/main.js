@@ -73,7 +73,7 @@ function classData() {
 	var data = []
 
 	for (var i = 0; i < classes.length; i++) {
-		var name = classes.item(i).querySelector('td[align="left"]');
+		var name = classes.item(i).querySelector('td[class="table-element-text-align-start"]');
 		name = name.textContent;
 		if (name[0] == '~') continue; //Not included in GPA
 
