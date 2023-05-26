@@ -1,6 +1,5 @@
-# bca-gpa-firefox
-An extension that calculates and shows GPA for PowerSchool BCA.
+# bca-gpa-2023
+An update version of [the BCA GPA browser extension](https://github.com/alebod21/bcagpa) that fixes bugs due to PowerSchool updates, and also adds a port to Firefox.
 
-This is a port of [@alebod21's extension for Chrome](https://github.com/alebod21/bcagpa)
 
-Addon Page: https://addons.mozilla.org/en-US/firefox/addon/bca-gpa/
+Firefox Addon Page: https://addons.mozilla.org/en-US/firefox/addon/bca-gpa/
