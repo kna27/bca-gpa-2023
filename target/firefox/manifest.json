@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "BCA GPA",
+    "version": "1.0.1",
+    "description": "Calculates and shows GPA for PowerSchool BCA",
+    "icons": {
+        "64": "64.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://ps001.bergen.org/guardian/home.html"
+            ],
+            "js": [
+                "main.js"
+            ]
+        }
+    ]
+}
