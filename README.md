@@ -6,4 +6,4 @@ Chrome Web Store Page: https://chrome.google.com/webstore/detail/bca-gpa/ofhfmcl
 
 Firefox Addon Page: https://addons.mozilla.org/en-US/firefox/addon/bca-gpa/
 
-![Screenshot of extension](./screenshot.png)
+![Screenshot of extension](./images/screenshot.png)

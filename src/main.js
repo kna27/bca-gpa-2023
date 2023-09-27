@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {String} str Content of grade table cell
+ * @returns {String} Letter grade
+ * @example extractLetterGrade("A95") // "A"
+ */
 function extractLetterGrade(str) {
     var s = "";
     for (var i = 0; i < str.length; i++) {
@@ -8,7 +14,15 @@ function extractLetterGrade(str) {
     return s;
 }
 
+/**
+ *
+ * @param {String} str Content of exp table cell
+ * @returns {Number} Number of mods per week
+ *  @todo Rewrite to use periods instead of mods
+ * @example modsPerWeek("2(M-T,R-F)") // 4
+ */
 function modsPerWeek(str) {
+    console.log(str);
     if (str.substring(0, 5) == "25-27" || str == "04-09(W)") return 2;
     var mods = 0;
 
@@ -78,7 +92,7 @@ function classData() {
     for (var i = 0; i < classes.length; i++) {
         var name = classes.item(i).querySelector('td[class="table-element-text-align-start"]');
         name = name.textContent;
-        if (name[0] == "~") continue; //Not included in GPA
+        if (name[0] == "~") continue; // Not included in GPA
 
         var info = classes.item(i).querySelectorAll("td");
         var grades = ["N", "N", "N", "N", 0];
@@ -87,22 +101,10 @@ function classData() {
         grades[4] = modsPerWeek(hours);
 
         for (var j = 0; j < info.length; j++) {
-            var elt = info.item(j);
-            var elta = elt.querySelector("a");
+            var elta = info.item(j).querySelector("a");
             if (elta == null) continue;
-            var href = elta.href;
-            if (href.substring(href.length - 14, href.length - 12) == "T1") {
-                grades[0] = extractLetterGrade(elta.textContent);
-            }
-            if (href.substring(href.length - 14, href.length - 12) == "T2") {
-                grades[1] = extractLetterGrade(elta.textContent);
-            }
-            if (href.substring(href.length - 14, href.length - 12) == "T3") {
-                grades[2] = extractLetterGrade(elta.textContent);
-            }
-            if (href.substring(href.length - 14, href.length - 12) == "Y1") {
-                grades[3] = extractLetterGrade(elta.textContent);
-            }
+            let href = elta.href.substring(elta.href.length - 14, elta.href.length - 12);
+            grades[["T1", "T2", "T3", "Y1"].indexOf(href)] = extractLetterGrade(elta.textContent);
         }
         data.push(grades);
     }
@@ -110,22 +112,24 @@ function classData() {
 }
 
 var data = classData();
-var pts = {};
-pts["A"] = 4.0;
-pts["A-"] = 3.8;
-pts["B+"] = 3.3;
-pts["B"] = 3.0;
-pts["B-"] = 2.8;
-pts["C+"] = 2.3;
-pts["C"] = 2.0;
-pts["C-"] = 1.8;
-pts["D+"] = 1.3;
-pts["D"] = 1.1;
-pts["F"] = 0.0;
+var pts = {
+    A: 4.0,
+    P: 4.0,
+    "A-": 3.8,
+    "B+": 3.3,
+    B: 3.0,
+    "B-": 2.8,
+    "C+": 2.3,
+    C: 2.0,
+    "C-": 1.8,
+    "D+": 1.3,
+    D: 1.1,
+    F: 0.0
+};
 var GPA = new Array(4);
 var keys = ["Trimester 1", "Trimester 2", "Trimester 3", "Year GPA"];
 for (var i = 0; i < 4; i++) {
-    //Each trimester and final GPA
+    // Each trimester and final GPA
     var totPts = 0;
     var totMods = 0;
     for (var j = 0; j < data.length; j++) {
@@ -141,21 +145,10 @@ for (var i = 0; i < 4; i++) {
 }
 
 var gpabox = document.createElement("h2");
-var gpasrc =
-    "<table cellspacing='0' style='width:50%;'>\
-<tr><td>Trimester 1</td><td>" +
-    GPA[0] +
-    "</td></tr>\
-<tr><td>Trimester 2</td><td>" +
-    GPA[1] +
-    "</td></tr>\
-<tr><td>Trimester 3</td><td>" +
-    GPA[2] +
-    "</td></tr>\
-<tr><td>Year GPA</td><td>" +
-    GPA[3] +
-    "</td></tr></table>";
-gpabox.innerHTML = gpasrc;
+gpabox.innerHTML = `
+<table cellspacing='0' style='width:50%;'>
+${keys.map((key, i) => `<tr><td>${key}</td><td>${GPA[i]}</td></tr>`).join("")}
+</table>`;
 
 var contentArea = document.getElementById("content-main");
 var box = contentArea.querySelector("h1");
