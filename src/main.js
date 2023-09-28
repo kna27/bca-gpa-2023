@@ -25,7 +25,7 @@ if (document.URL === "https://ps001.bergen.org/guardian/home.html") {
      *
      * @param {String} str Content of exp table cell
      * @returns {Number} Number of mods per week
-     *  @todo Rewrite to use periods instead of mods
+     * @todo Rewrite to use periods instead of mods
      * @example modsPerWeek("2(M-T,R-F)") // 4
      */
     function modsPerWeek(str) {
@@ -120,18 +120,18 @@ if (document.URL === "https://ps001.bergen.org/guardian/home.html") {
 
     var data = classData();
     var pts = {
-        A: 4.0,
-        P: 4.0,
+        "A": 4.0,
+        "P": 4.0,
         "A-": 3.8,
         "B+": 3.3,
-        B: 3.0,
+        "B": 3.0,
         "B-": 2.8,
         "C+": 2.3,
-        C: 2.0,
+        "C": 2.0,
         "C-": 1.8,
         "D+": 1.3,
-        D: 1.1,
-        F: 0.0
+        "D": 1.1,
+        "F": 0.0
     };
     var GPA = new Array(4);
     var keys = ["Trimester 1", "Trimester 2", "Trimester 3", "Year GPA"];
