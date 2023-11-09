@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name        BCA GPA
 // @description GPA Calculator for BCA
-// @match       https://ps001.bergen.org/*
+// @match       https://bcts.powerschool.com/*
 // ==/UserScript==
 
-if (document.URL === "https://ps001.bergen.org/guardian/home.html") {
+if (document.URL === "https://bcts.powerschool.com/guardian/home.html") {
     /**
      *
      * @param {String} str Content of grade table cell
