@@ -4,7 +4,7 @@
 // @match       https://bcts.powerschool.com/*
 // ==/UserScript==
 
-if (document.URL.split("?")[0] === "https://bcts.powerschool.com/guardian/home.html") {
+if (document.URL.split("?")[0].startsWith("https://bcts.powerschool.com/guardian/home.html")) {
     /**
      *
      * @param {String} str Content of grade table cell

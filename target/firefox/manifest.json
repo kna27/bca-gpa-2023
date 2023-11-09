@@ -8,7 +8,10 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://bcts.powerschool.com/guardian/home.html*"],
+            "matches": [
+                "https://bcts.powerschool.com/guardian/home.html*",
+                "https://bcts.powerschool.com/guardian/home.html/*"
+            ],
             "js": ["main.js"]
         }
     ]
