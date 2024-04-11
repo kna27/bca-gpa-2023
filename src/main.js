@@ -131,7 +131,8 @@ if (document.URL.split("?")[0].startsWith("https://bcts.powerschool.com/guardian
         "C-": 1.8,
         "D+": 1.3,
         "D": 1.1,
-        "F": 0.0
+        "F": 0.0,
+        "I": 0.0
     };
     var GPA = new Array(4);
     var keys = ["Trimester 1", "Trimester 2", "Trimester 3", "Year GPA"];
