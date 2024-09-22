@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "BCA GPA",
-    "version": "1.0.4",
+    "version": "1.1",
     "description": "Calculates and shows GPA for PowerSchool BCA",
     "icons": {
         "64": "64.png"
